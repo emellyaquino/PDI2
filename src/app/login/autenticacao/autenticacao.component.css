@@ -1,0 +1,22 @@
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+}
+.signin-content {
+  padding: 100px 1rem;
+}
+.full-width-input {
+  width: 100%;
+}
+
+mat-card-title{
+  font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+.example-header-image {
+  /*background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');*/
+  /*background-image: url('C:\Users\angel\source\repos\pdi_angular\src\app\img\logo.png');*/
+  background-image: url('/logo.png');
+  background-size: cover;
+}

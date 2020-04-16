@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon [routerLink]="['/dashboard']">dashboard</mat-icon>
+          <a [routerLink]="['/dashboard']">Dashboard</a>
+        </button>
+        <button mat-menu-item [matMenuTriggerFor]="submenu" aria-label="Example icon-button with a submenu">
+          <mat-icon>people</mat-icon>
+          <span>Funcionários</span>
+        </button>
+      </mat-menu>
+
+      <mat-menu #submenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon [routerLink]="['/usuarios']">assignment_ind</mat-icon>
+          <a [routerLink]="['/usuarios']">Cadastro</a>
+        </button>   
+      </mat-menu>
+
+      <span>Nossa Aplicação</span>
+      <span class="spacer"></span>
+      <!--<mat-icon class="icon" aria-hidden="false">account_circle</mat-icon>-->
+      <div mat-card-avatar class="example-header-image"></div>&nbsp;&nbsp; Bem vindo @{{usuarioLogado}}
+      <button mat-icon-button>
+         <mat-icon class="icon" aria-hidden="false" (click)="Logout()">exit_to_app</mat-icon>
+      </button>
+    </mat-toolbar-row>
+</mat-toolbar>

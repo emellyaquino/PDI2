@@ -1,0 +1,145 @@
+<div class="card">
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Cadastro</mat-card-title>
+                <mat-card-subtitle>Funcionários</mat-card-subtitle>
+            </mat-card-header>
+
+            <div class="form">
+                <mat-horizontal-stepper [linear]="isLinear" #stepper>
+                <mat-step [stepControl]="firstFormGroup">
+                <ng-template matStepLabel>Dados Pessoais</ng-template>  
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Nome: </mat-label>
+                    <input matInput placeholder="Digite o nome completo">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Email</mat-label>
+                    <input matInput [formControl]="emailFormControl" placeholder="Digite o email">
+                    <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                      Por favor informar um email válido
+                    </mat-error>
+                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                      O campo email é obrigatório
+                    </mat-error>
+                </mat-form-field>
+
+                <p>
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Logradouro</mat-label>
+                      <textarea matInput placeholder="Digite o logradouro"></textarea>
+                    </mat-form-field>
+                </p>
+
+                <table class="example-full-width" cellspacing="0"><tr>
+                    <td>
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Bairro</mat-label>
+                      <input matInput placeholder="Digite o bairro">
+                    </mat-form-field></td>
+                    <td>
+                    <mat-form-field class="example-full-width">
+                      <mat-label>Número</mat-label>
+                      <input matInput placeholder="Digite o número">
+                    </mat-form-field></td>
+                  </tr>
+                </table>
+                
+                <table class="example-full-width" cellspacing="0"><tr>
+                   <td>
+                   <mat-form-field class="example-full-width">
+                     <mat-label>Cidade</mat-label>
+                     <input matInput placeholder="Digite o estado">
+                   </mat-form-field>
+                   </td>
+                   <td>
+                    <mat-form-field class="example-full-width">
+                     <mat-label>Estado</mat-label>
+                     <input matInput placeholder="Digite o Estado">
+                   </mat-form-field>
+                   </td>
+                   <td>
+                    <mat-form-field class="example-full-width">
+                     <mat-label>Pais</mat-label>
+                     <input matInput placeholder="Digite o Pais">
+                   </mat-form-field>
+                   </td>
+                 </tr>
+                </table>
+
+                <table class="example-full-width" cellspacing="0"><tr>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Telefone 1</mat-label>
+                            <span matPrefix> +55 &nbsp;</span>
+                            <input type="tel" matInput placeholder="99999-9999">
+                        </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Telefone 2</mat-label>
+                            <span matPrefix> +55 &nbsp;</span>
+                            <input type="tel" matInput placeholder="99999-9999">
+                        </mat-form-field>
+                    </td>
+                  </tr>
+                 </table>
+                 <div class="example-button-row">
+                    <button mat-raised-button color="primary" matStepperNext>Próximo</button>
+                </div>   
+                </mat-step>
+
+                <mat-step [stepControl]="firstFormGroup"> 
+                    <ng-template matStepLabel>Dados trabalhista</ng-template>  
+                    <mat-form-field>
+                        <mat-label>Cargo</mat-label>
+                        <mat-select>
+                          <mat-option *ngFor="let cargo of cargos" [value]="cargo.value">
+                            {{cargo.viewValue}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Squad</mat-label>
+                        <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+                          <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                            {{option.name}}
+                          </mat-option>
+                        </mat-autocomplete>
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <mat-label>Status</mat-label>
+                        <select matNativeControl required>
+                          <option value="Ativo">Ativo</option>
+                          <option value="Inativo">inativo</option>
+                        </select>
+                    </mat-form-field> 
+                    <div class="example-button-row">
+                        <button mat-raised-button color="primary" matStepperPrevious>Anterior</button>
+                        <button mat-raised-button color="primary" matStepperNext>Próximo</button>
+                    </div>          
+                </mat-step>
+
+                <mat-step>
+                    <ng-template matStepLabel>Outros</ng-template>
+                    <mat-form-field class="example-full-width">
+                        <mat-label>Observações</mat-label>
+                        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+                      </mat-form-field>
+                    <div class="example-button-row">
+                      <button mat-raised-button color="primary" matStepperPrevious>Anterior</button>
+                      <button mat-raised-button color="primary" (click)="Salvar()">Salvar</button>
+                    </div>
+                  </mat-step>
+                </mat-horizontal-stepper>             
+            </div>
+        </mat-card>
+    </div>
+</div>
+

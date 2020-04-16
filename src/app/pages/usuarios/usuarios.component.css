@@ -1,0 +1,60 @@
+.card {
+    height: 800px;
+    width: 100%;
+    background-color:white;
+  }
+
+  mat-card{
+      width: 100%;
+      height: 800px;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+  .imputWidth50 {
+    width: 70%;
+  }
+
+  .imputWidth30 {
+    width: 30%;
+  }
+
+  .form{
+      padding-top: 2%;
+      padding-right: 2%;
+      padding-left: 2%;
+      padding-bottom: 2%;
+  }
+
+  td {
+    padding-right: 8px;
+  }
+
+  .mat-stepper-horizontal {
+    margin-top: 8px;
+  }
+  
+  .mat-form-field {
+    margin-top: 16px;
+  }
+
+  .mat-radio-button ~ .mat-radio-button {
+    margin-left: 16px;
+  }
+
+  .example-button-row button,
+  .example-button-row a {
+    margin-right: 8px;
+    margin-left: 8px;
+  }
+
+  
+  
